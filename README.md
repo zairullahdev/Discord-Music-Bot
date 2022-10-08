@@ -4,11 +4,11 @@
 ## Setup
 1. Download and install python version `3.6` or higher
 2. Install discord.py
-Linux/macOS
+#Linux/macOS
 ```sh
 $ python3 -m pip install -U "discord.py[voice]"
 ```
-Windows
+#Windows
 ```sh
 $ py -3 -m pip install -U discord.py[voice]
 ```
