@@ -1,5 +1,5 @@
 <h1 align="center">Discord Music Bot</h1>
-> A simple Discord music bot.
+<p align="center">A simple Discord music bot.</p>
 
 ## Feature
 - `!join` summon bot into your voice channel
@@ -7,8 +7,8 @@
 - `!play` play the given song
 
 ## Lavalink server
-<h1 align="center">Discord Music Bot</h1>
-<p align="center">Thanks for 25k Views with 500 subs!</p>
+<p align="center">Host</p>
+<p align="center">kyuk.my.id</p>
 
 
 ## Setup
