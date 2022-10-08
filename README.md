@@ -14,3 +14,8 @@ Windows
 $ py -3 -m pip install -U discord.py[voice]
 ```
 
+3. Install wavelink
+
+```sh
+$ pip install wavelink
+```
