@@ -23,6 +23,7 @@ $ pip install wavelink
 You can get your bot token from https://discord.com/developers/applications
 
 5. Finally, you can start the bot
+
 Linux
 ```sh
 $ python3 main.py
