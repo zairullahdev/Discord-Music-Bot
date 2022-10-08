@@ -6,9 +6,6 @@
 - `!leave` make bot to leave your voice channel
 - `!play` play the given song
 
-## Lavalink server
-<p align="center">Host</p>
-<p align="center">kyuk.my.id</p>
 
 
 ## Setup
@@ -42,3 +39,18 @@ Windows
 ```sh
 $ python main.py
 ```
+
+
+## Lavalink server
+<p><div align="center"><b>Host</b></div></p>
+<p><div align="center">kyuk.my.id</div></p>
+
+<p><div align="center"><b>Password</b></div></p>
+<p><div align="center">www.kyuk.my.id</div></p>
+
+<p><div align="center"><b>Port</b></div></p>
+<p><div align="center">2333</div></p>
+
+<p><div align="center"><b>Secure</b></div></p>
+<p><div align="center">false</div></p>
+
