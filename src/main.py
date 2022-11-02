@@ -26,6 +26,6 @@ async def load_extensions():
 
 async def Login():
     async with client:
-        await client.start(botToken)
+        await client.start(os.environ['TOKEN'])
 
 asyncio.run(Login())
