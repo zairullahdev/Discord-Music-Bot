@@ -86,9 +86,12 @@ class Music(commands.Cog):
        await vc.stop()
 
 
-      
+async def create_nodes(bot):
+    await wavelink.NodePool.create_node(bot=bot, host="kyuk.my.id", port="2333", password="www.kyuk.my.id", region="asia")
+
+
     
 
 async def setup(bot):
-    await bot.loop.create_task(self.create_nodes())
+    await bot.loop.create_task(create_nodes(bot))
     await bot.add_cog(Music(bot))
