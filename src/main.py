@@ -24,8 +24,4 @@ async def load_extensions():
         if filename.endswith(".py"):
             await client.load_extension(f"cogs.{filename[:-3]}")
 
-async def Login():
-    async with client:
-        await client.start(os.environ['TOKEN'])
-
-asyncio.run(Login())
+client.run(os.environ['TOKEN'])
