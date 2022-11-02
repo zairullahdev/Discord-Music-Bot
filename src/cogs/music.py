@@ -64,7 +64,7 @@ class Music(commands.Cog):
             vc: wavelink.Player = await ctx.author.voice.channel.connect(cls=wavelink.Player)
         else:
             vc: wavelink.Player = ctx.voice_client
-        if not vc.is_playing() and vc.queue.is_empty(): 
+        if not vc.is_playing() and vc.queue.is_empty: 
          await vc.play(search)
          playString = discord.Embed(description=f'**Search found**\n\n`{search.title}`', color=discord.Color.from_rgb(128, 67, 255))
          await ctx.send(embed=playString)
