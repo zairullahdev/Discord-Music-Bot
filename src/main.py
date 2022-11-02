@@ -11,7 +11,7 @@ class OurBot(commands.Bot):
         super().__init__(*args, **kwargs)
 
     async def setup_hook(self):
-     await client.load_extension(f"cogs.{filename[:-3]}")
+     await load_extensions(f"cogs.{filename[:-3]}")
 
 client = OurBot(command_prefix=os.environ['PREFIX'], intents = intents, status=discord.Status.idle, activity=discord.Streaming(name=f"Version {os.environ['BOTVER']} | {os.environ['PREFIX']}help", url="https://www.twitch.tv/discord"))
 
@@ -26,7 +26,6 @@ async def load_extensions():
 
 async def Login():
     async with client:
-        await load_extensions()
         await client.start(botToken)
 
 asyncio.run(Login())
