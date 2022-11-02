@@ -1,6 +1,12 @@
 import discord , os , asyncio
 from discord.ext import commands
 from dotenv import load_dotenv
+import wavelink
+
+@bot.listener()
+async def on_wavelink_node_ready(self, node: wavelink.Node):
+        print(f"Node <{node.identifier}> is now Ready!")
+
 
 load_dotenv()
 
