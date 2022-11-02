@@ -19,7 +19,7 @@ client = OurBot(command_prefix=os.environ['BOTPREFIX'], intents = intents, statu
 
 
 @client.listen()
-async def on_wavelink_node_ready(self, node: wavelink.Node):
+async def on_wavelink_node_ready(node: wavelink.Node):
         print(f"Node <{node.identifier}> is now Ready!")
 
 
