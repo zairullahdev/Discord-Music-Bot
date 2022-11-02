@@ -40,7 +40,7 @@ class Music(commands.Cog):
         await ctx.send(embed=embed)
      except wavelink.errors.QueueEmpty:
         embed = discord.Embed(
-            title=" ", description="There are no more tracks", color=discord.Color.from_rgb(255, 0, >
+            title=" ", description="There are no more tracks", color=discord.Color.from_rgb(255, 0, 255)
         await ctx.send(embed=embed)
         await vc.disconnect()
 
