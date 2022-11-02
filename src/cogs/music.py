@@ -25,6 +25,26 @@ class Music(commands.Cog):
         print("Music Cog is now ready!")
 
     @commands.Cog.listener()
+    async def on_wavelink_track_end(self, player: wavelink.Player, track: wavelink.Track, reason):
+     ctx = player.ctx
+     vc: player = ctx.voice_client
+
+     if vc.loop is True:
+        return await vc.play(track)
+
+     try:
+        next_song = vc.queue.get()
+        await vc.play(next_song)
+        embed = discord.Embed(
+            title=" ", description=f"Started playing  **[{next_song.title}]({next_song.uri})**")
+        await ctx.send(embed=embed)
+     except wavelink.errors.QueueEmpty:
+        embed = discord.Embed(
+            title=" ", description="There are no more tracks", color=discord.Color.from_rgb(255, 0, >
+        await ctx.send(embed=embed)
+        await vc.disconnect()
+
+    @commands.Cog.listener()
     async def on_wavelink_node_ready(self, node: wavelink.Node):
         print(f"Node <{node.identifier}> is now Ready!")
 
