@@ -90,7 +90,7 @@ class Music(commands.Cog):
          await ctx.send(embed=playString)
         else:
          await vc.queue.put_wait(search)
-         await ctx.send("Added: ", search.title)
+         await ctx.send(f"Added: {search.title}")
         vc.ctx = ctx
         setattr(vc, "loop", False)
 
@@ -104,7 +104,7 @@ class Music(commands.Cog):
             vc: wavelink.Player = ctx.voice_client
        if not vc.is_playing():
         return await ctx.send("Nothing Played")
-       await ctx.send("Skipped: ", vc.track.title)
+       await ctx.send(f"Skipped: {vc.track.title}")
        await vc.stop()
 
 
