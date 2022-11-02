@@ -18,7 +18,7 @@ class OurBot(commands.Bot):
 client = OurBot(command_prefix=os.environ['BOTPREFIX'], intents = intents, status=discord.Status.idle, activity=discord.Streaming(name=f"Version {os.environ['BOTVER']} | {os.environ['BOTPREFIX']}help", url="https://www.twitch.tv/discord"))
 
 
-@client.listener()
+@client.listen()
 async def on_wavelink_node_ready(self, node: wavelink.Node):
         print(f"Node <{node.identifier}> is now Ready!")
 
