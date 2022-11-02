@@ -1,22 +1,18 @@
 import discord , os , asyncio
 from discord.ext import commands
-from settings import botToken , botVer
+from dotenv import load_dotenv
 
-intents = discord.Intents(messages = True, guilds = True)
-intents.guild_messages = True
-intents.members = True
-intents.message_content = True
-intents.voice_states = True
-intents.emojis_and_stickers = True
-all_intents = intents.all()
-all_intents= True
+load_dotenv()
 
-client = commands.Bot(command_prefix='!', intents = intents)
+intents = discord.Intents.all()
+
+
+client = commands.Bot(command_prefix=os.environ['PREFIX'], intents = intents, status=discord.Status.idle, activity=discord.Streaming(name=f"Version {os.environ['BOTVER']} | {os.environ['PREFIX']}help", url="https://www.twitch.tv/discord")
 
 @client.event
 async def on_ready():
     print(f'logged in as: {client.user.name}')
-    await client.change_presence(status=discord.Status.idle, activity = discord.Streaming(name=f"Version {botVer} | !help", url="https://www.twitch.tv/discord"))
+
 
 
 async def load_extensions():
