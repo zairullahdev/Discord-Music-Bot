@@ -8,7 +8,6 @@ class Music(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
         self.embed_color = discord.Color.from_rgb(128, 67, 255)
-        bot.loop.create_task(self.create_nodes())
 
     async def create_nodes(self):
         await self.bot.wait_until_ready()
@@ -72,4 +71,5 @@ class Music(commands.Cog):
     
 
 async def setup(bot):
+    await bot.loop.create_task(self.create_nodes())
     await bot.add_cog(Music(bot))
