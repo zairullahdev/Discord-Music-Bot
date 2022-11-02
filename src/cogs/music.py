@@ -70,7 +70,9 @@ class Music(commands.Cog):
          await ctx.send(embed=playString)
         else:
          await vc.queue.put_wait(search)
-         await ctx.send("Added: ", search)
+         await ctx.send("Added: ", search.title)
+        vc.ctx = ctx
+        setattr(vc, "loop", False)
 
     @commands.command(name='skip', help="Skip Lagu")
     async def skip(self, ctx):
