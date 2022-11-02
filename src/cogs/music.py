@@ -64,10 +64,29 @@ class Music(commands.Cog):
             vc: wavelink.Player = await ctx.author.voice.channel.connect(cls=wavelink.Player)
         else:
             vc: wavelink.Player = ctx.voice_client
- 
-        await vc.play(search)
-        playString = discord.Embed(description=f'**Search found**\n\n`{search.title}`', color=discord.Color.from_rgb(128, 67, 255))
-        await ctx.send(embed=playString)
+        if not vc.is_playing() and vc.queue.is_empty(): 
+         await vc.play(search)
+         playString = discord.Embed(description=f'**Search found**\n\n`{search.title}`', color=discord.Color.from_rgb(128, 67, 255))
+         await ctx.send(embed=playString)
+        else:
+         await vc.queue.put_wait(search)
+         await ctx.send("Added: ", search)
+
+    @commands.command(name='skip', help="Skip Lagu")
+    async def skip(self, ctx):
+       if not getattr(ctx.author.voice, 'channel', None):
+            return await ctx.send(embed=discord.Embed(description=f'Coba lagi setelah join kedalam voice', color=discord.Color.from_rgb(128, 67, 255)))  
+       elif not ctx.voice_client:
+            return await ctx.send("Bot is not connected")
+       else:
+            vc: wavelink.Player = ctx.voice_client
+       if not vc.is_playing():
+        return await ctx.send("Nothing Played")
+       await ctx.send("Skipped: ", vc.track.title)
+       await vc.stop()
+
+
+      
     
 
 async def setup(bot):
